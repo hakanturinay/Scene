@@ -17,6 +17,14 @@
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
     <link rel="stylesheet" href="main.css">
+
+  </head>
+  <body>
+       <div id="container">
+      <video autoplay="true" id="videoElement">
+      
+      </video>
+    </div>
     <script>
       var video = document.querySelector("#videoElement");
 
@@ -30,8 +38,7 @@
             });
         }
     </script>
-  </head>
-  <body>
+    
     <div class="overlay"> 
       <div id="intro-top">
         <!--<div id="intro-pre-text">an AR experience by</div>-->
@@ -40,11 +47,7 @@
       <div  id="debug-text">Init text</div>
     </div>
     <!--<div id="recenter">recenter origin</div>-->
-    <div id="container">
-      <video autoplay="true" id="videoElement">
-      
-      </video>
-    </div>
+ 
     
     
   </body>
