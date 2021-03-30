@@ -27,7 +27,11 @@
       <div  id="debug-text">Init text</div>
     </div>
     <!--<div id="recenter">recenter origin</div>-->
-    
+    <div id="container">
+      <video autoplay="true" id="videoElement">
+      
+      </video>
+    </div>
     <a-scene
       stats
       debug-test
@@ -77,20 +81,20 @@
       <!-- Hider walls -->
         <a-entity id="hider-walls">    
           <!-- front-top-->
-          <a-box scale="6 100 1" position="0 60 0"  xrextras-hider-material></a-box>
+          <a-box scale="6 100 1" position="0 60 0" id="container"></a-box>
           <!-- left-->
-          <a-box scale="94 100 1" position="-50 50 0" xrextras-hider-material></a-box>
+          <a-box scale="94 100 1" position="-50 50 0"  id="container"></a-box>
           <!--<a-box scale="94 100 1" rotate="0 180 0" position="-50 50 0" xrextras-hider-material></a-box>-->
           <!-- right-->
-          <a-box scale="94 100 1" position="50 50 0" xrextras-hider-material></a-box>
+          <a-box scale="94 100 1" position="50 50 0"  id="container"></a-box>
           <!-- behind-->
-          <a-box scale="200 100 1" position="0 50 200" xrextras-hider-material></a-box>
+          <a-box scale="200 100 1" position="0 50 200"  id="container"></a-box>
           <!-- proper-top-->
-          <a-box scale="200 1 201" position="0 100 100" xrextras-hider-material></a-box>
+          <a-box scale="200 1 201" position="0 100 100"  id="container"></a-box>
           <!-- proper-bottom-->
-          <a-box scale="200 1 201" position="0 -0.5 100" xrextras-hider-material></a-box>
-          <a-box scale="1 100 200" position="-100 50 100" xrextras-hider-material></a-box>
-          <a-box scale="1 100 200" position="100 50 100" xrextras-hider-material></a-box>
+          <a-box scale="200 1 201" position="0 -0.5 100"  id="container"></a-box>
+          <a-box scale="1 100 200" position="-100 50 100"  id="container"></a-box>
+          <a-box scale="1 100 200" position="100 50 100"  id="container"></a-box>
         </a-entity>
       
         <a-entity id="portal-wall">
