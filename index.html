@@ -22,12 +22,11 @@
       AFRAME.registerComponent("foo", {
         init: function() {
           this.el.addEventListener("click", (e) => {
-            console.log(document.getElementById("camera"))
             document.getElementById("camera").setAttribute('position', '0 0 0')
             this.el.setAttribute('position', {
-              x: 0,
+              x: -1,
               y: 0,
-              z: 0
+              z: -1
             })
           })
         }
@@ -54,21 +53,23 @@
       xrextras-loading
       xrextras-runtime-error
       xrweb
-      cursor="rayOrigin: mouse"
+      
       foo>
 
         <!-- We can define assets here to be loaded when A-Frame initializes -->
         <a-assets>
           <!-- Credit to Poly by Google for the model: https://poly.google.com/view/0fVRHo65E-j -->
           <!--<a-asset-item id="ballModel" src="assets/jini-ball.glb"></a-asset-item>-->
-          <a-asset-item id="mainSculpture1" src="assets/glbs/Sculptures.glb" foo></a-asset-item>
-          <a-asset-item id="brassModel" src="assets/glbs/brushedbrass.glb" foo></a-asset-item>
-          <a-asset-item id="nickelModel" src="assets/glbs/brushednickel.glb" foo></a-asset-item>
-          <a-asset-item id="chromeModel" src="assets/glbs/chrome.glb" foo></a-asset-item>
-          <a-asset-item id="glassModel" src="assets/glbs/frostedglass.glb" foo></a-asset-item>
-          <a-asset-item id="matteModel" src="assets/glbs/matteblack.glb"foo></a-asset-item>
-          <a-asset-item id="baseModel" src="assets/glbs/base.glb" foo></a-asset-item>
-    
+        <a-assets cursor="rayOrigin: mouse">
+          <a-asset-item id="mainSculpture1" src="assets/glbs/Sculptures.glb" ></a-asset-item>
+        </a-assets>
+          <a-asset-item id="brassModel" src="assets/glbs/brushedbrass.glb" ></a-asset-item>
+          <a-asset-item id="nickelModel" src="assets/glbs/brushednickel.glb" ></a-asset-item>
+          <a-asset-item id="chromeModel" src="assets/glbs/chrome.glb" ></a-asset-item>
+          <a-asset-item id="glassModel" src="assets/glbs/frostedglass.glb" ></a-asset-item>
+          <a-asset-item id="matteModel" src="assets/glbs/matteblack.glb"></a-asset-item>
+          <a-asset-item id="baseModel" src="assets/glbs/base.glb" ></a-asset-item>
+       
           <!--<img id="pines" src="./assets/misty-pines.jpg">-->
           <!--<img id="pines" src="./assets/misty-pines.jpg">-->
           <img id="tahoe" src="./assets/hdris/tahoe-Resized.jpg">
@@ -86,7 +87,7 @@
           <img id="negz" src="./assets/cubemap/nz.png">
       </a-assets>
  
-      <a-camera id="camera" position="0 4 8" foo></a-camera>
+      <a-camera id="camera" position="0 4 8" ></a-camera>
       <!-- <a-entity id="camera-rig" position="0 4 8">
         <a-entity camera look-controls position="0 0 0" cursor="ray-origin: mouse" raycaster="objects: [src]" rotation=""></a-entity>
       </a-entity> -->
