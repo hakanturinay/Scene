@@ -17,6 +17,19 @@
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
     <link rel="stylesheet" href="main.css">
+    <script>
+      var video = document.querySelector("#videoElement");
+
+        if (navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+              video.srcObject = stream;
+            })
+            .catch(function (err0r) {
+              console.log("Something went wrong!");
+            });
+        }
+    </script>
   </head>
   <body>
     <div class="overlay"> 
@@ -81,20 +94,20 @@
       <!-- Hider walls -->
         <a-entity id="hider-walls">    
           <!-- front-top-->
-          <a-box scale="6 100 1" position="0 60 0" id="container"></a-box>
+          <a-box scale="6 100 1" position="0 60 0" xrextras-hider-material></a-box>
           <!-- left-->
-          <a-box scale="94 100 1" position="-50 50 0"  id="container"></a-box>
+          <a-box scale="94 100 1" position="-50 50 0"  xrextras-hider-material></a-box>
           <!--<a-box scale="94 100 1" rotate="0 180 0" position="-50 50 0" xrextras-hider-material></a-box>-->
           <!-- right-->
-          <a-box scale="94 100 1" position="50 50 0"  id="container"></a-box>
+          <a-box scale="94 100 1" position="50 50 0"  xrextras-hider-material></a-box>
           <!-- behind-->
-          <a-box scale="200 100 1" position="0 50 200"  id="container"></a-box>
+          <a-box scale="200 100 1" position="0 50 200" xrextras-hider-material></a-box>
           <!-- proper-top-->
-          <a-box scale="200 1 201" position="0 100 100"  id="container"></a-box>
+          <a-box scale="200 1 201" position="0 100 100" xrextras-hider-material></a-box>
           <!-- proper-bottom-->
-          <a-box scale="200 1 201" position="0 -0.5 100"  id="container"></a-box>
-          <a-box scale="1 100 200" position="-100 50 100"  id="container"></a-box>
-          <a-box scale="1 100 200" position="100 50 100"  id="container"></a-box>
+          <a-box scale="200 1 201" position="0 -0.5 100" xrextras-hider-material></a-box>
+          <a-box scale="1 100 200" position="-100 50 100"  xrextras-hider-material></a-box>
+          <a-box scale="1 100 200" position="100 50 100"  xrextras-hider-material></a-box>
         </a-entity>
       
         <a-entity id="portal-wall">
