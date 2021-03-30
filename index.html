@@ -4,45 +4,27 @@
     <meta charset="utf-8">
     <title>360&deg; Image</title>
     <meta name="description" content="360&deg; Image - A-Frame">
-    <!-- <script src="https://unpkg.com/aframe-lerp-component/dist/aframe-lerp-component.min.js"></script> -->
+    <script src="https://unpkg.com/aframe-lerp-component/dist/aframe-lerp-component.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> 
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="cubemap-static.js"></script>
     <script src="debug-text.js"></script>
+    <script src="portal-components.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
-    <script src="https://www.lokeldigital.com/shared-code/a-frame/onclick.js"></script>
-     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-     <!-- <script src="https://unpkg.com/aframe-touch-inspector@1.0.1/dist/aframe-inspector.min.js"></script> -->
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
     <link rel="stylesheet" href="main.css">
-    <!-- <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> -->
-    <script>
-      AFRAME.registerComponent("foo", {
-        init: function() {
-          this.el.addEventListener("click", (e) => {
-            document.getElementById("camera").setAttribute('position', '0 0 0')
-            this.el.setAttribute('position', {
-              x: -1,
-              y: 0,
-              z: -1
-            })
-          })
-        }
-      })
-
-</script>
   </head>
-
   <body>
-     <!-- <div class="overlay"> 
+    <div class="overlay"> 
       <div id="intro-top">
-      
+        <!--<div id="intro-pre-text">an AR experience by</div>-->
         <div id="intro-logo"><img id="logo" src="./assets/images/studio-kohler-logo-temp.png"></div>
       </div>
       <div  id="debug-text">Init text</div>
-    </div> -->
+    </div>
     <!--<div id="recenter">recenter origin</div>-->
     
     <a-scene
@@ -52,45 +34,38 @@
       xrextras-almost-there
       xrextras-loading
       xrextras-runtime-error
-      xrweb
-      
-      foo>
-
-        <!-- We can define assets here to be loaded when A-Frame initializes -->
-        <a-assets>
-          <!-- Credit to Poly by Google for the model: https://poly.google.com/view/0fVRHo65E-j -->
-          <!--<a-asset-item id="ballModel" src="assets/jini-ball.glb"></a-asset-item>-->
-        <a-assets cursor="rayOrigin: mouse">
-          <a-asset-item id="mainSculpture1" src="assets/glbs/Sculptures.glb" ></a-asset-item>
-        </a-assets>
-          <a-asset-item id="brassModel" src="assets/glbs/brushedbrass.glb" ></a-asset-item>
-          <a-asset-item id="nickelModel" src="assets/glbs/brushednickel.glb" ></a-asset-item>
-          <a-asset-item id="chromeModel" src="assets/glbs/chrome.glb" ></a-asset-item>
-          <a-asset-item id="glassModel" src="assets/glbs/frostedglass.glb" ></a-asset-item>
-          <a-asset-item id="matteModel" src="assets/glbs/matteblack.glb"></a-asset-item>
-          <a-asset-item id="baseModel" src="assets/glbs/base.glb" ></a-asset-item>
-       
-          <!--<img id="pines" src="./assets/misty-pines.jpg">-->
-          <!--<img id="pines" src="./assets/misty-pines.jpg">-->
-          <img id="tahoe" src="./assets/hdris/tahoe-Resized.jpg">
-          <!--<img id="posx" src="./assets/cubemap/posx.png">-->
-          <!--<img id="posy" src="./assets/cubemap/posy.png">-->
-          <!--<img id="posz" src="./assets/cubemap/posz.png">-->
-          <!--<img id="negx" src="./assets/cubemap/negx.png">-->
-          <!--<img id="negy" src="./assets/cubemap/negy.png">-->
-          <!--<img id="negz" src="./assets/cubemap/negz.png">-->
-          <img id="posx" src="./assets/cubemap/px.png">
-          <img id="posy" src="./assets/cubemap/py.png">
-          <img id="posz" src="./assets/cubemap/pz.png">
-          <img id="negx" src="./assets/cubemap/nx.png">
-          <img id="negy" src="./assets/cubemap/ny.png">
-          <img id="negz" src="./assets/cubemap/nz.png">
+      xrweb>
+    
+      <!-- We can define assets here to be loaded when A-Frame initializes -->
+      <a-assets>
+        <!-- Credit to Poly by Google for the model: https://poly.google.com/view/0fVRHo65E-j -->
+        <!--<a-asset-item id="ballModel" src="assets/jini-ball.glb"></a-asset-item>-->
+        <a-asset-item id="mainSculpture1" src="assets/glbs/Sculptures.glb"></a-asset-item>
+        <a-asset-item id="brassModel" src="assets/glbs/brushedbrass.glb"></a-asset-item>
+        <a-asset-item id="nickelModel" src="assets/glbs/brushednickel.glb"></a-asset-item>
+        <a-asset-item id="chromeModel" src="assets/glbs/chrome.glb"></a-asset-item>
+        <a-asset-item id="glassModel" src="assets/glbs/frostedglass.glb"></a-asset-item>
+        <a-asset-item id="matteModel" src="assets/glbs/matteblack.glb"></a-asset-item>
+        <a-asset-item id="baseModel" src="assets/glbs/base.glb"></a-asset-item>
+        <!--<img id="pines" src="./assets/misty-pines.jpg">-->
+        <!--<img id="pines" src="./assets/misty-pines.jpg">-->
+        <img id="tahoe" src="./assets/hdris/tahoe-Resized.jpg">
+        <!--<img id="posx" src="./assets/cubemap/posx.png">-->
+        <!--<img id="posy" src="./assets/cubemap/posy.png">-->
+        <!--<img id="posz" src="./assets/cubemap/posz.png">-->
+        <!--<img id="negx" src="./assets/cubemap/negx.png">-->
+        <!--<img id="negy" src="./assets/cubemap/negy.png">-->
+        <!--<img id="negz" src="./assets/cubemap/negz.png">-->
+        <img id="posx" src="./assets/cubemap/px.png">
+        <img id="posy" src="./assets/cubemap/py.png">
+        <img id="posz" src="./assets/cubemap/pz.png">
+        <img id="negx" src="./assets/cubemap/nx.png">
+        <img id="negy" src="./assets/cubemap/ny.png">
+        <img id="negz" src="./assets/cubemap/nz.png">
       </a-assets>
- 
-      <a-camera id="camera" position="0 4 8" ></a-camera>
-      <!-- <a-entity id="camera-rig" position="0 4 8">
-        <a-entity camera look-controls position="0 0 0" cursor="ray-origin: mouse" raycaster="objects: [src]" rotation=""></a-entity>
-      </a-entity> -->
+    
+      <a-camera id="camera" position="0 4 8"></a-camera>
+    
       <!-- Doorway -->
       <!--<a-box  scale="1 6 1" position="-2.5 3 0" color="#8083A2"></a-box>-->
       <!--<a-box scale="1 6 1" position="2.5 3 0" color="#8083A2"></a-box>-->
@@ -219,7 +194,7 @@
       
           
           <a-sky src="#tahoe"></a-sky>
-          <!-- <a-box scale="5 1 10" position="0 -0.5 -4.5" color="#8083A2" shadow></a-box> -->
+          <!--<a-box scale="5 1 10" position="0 -0.5 -4.5" color="#8083A2" shadow></a-box>-->
         </a-entity>
       </a-entity>
     
